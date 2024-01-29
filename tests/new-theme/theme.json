@@ -1,0 +1,11 @@
+{
+    "author": "Unknown",
+    "identifier": "com.example.theme",
+    "name": "New Theme",
+    "styles": [
+        {
+            "name": "New Style",
+            "entry": "style.scss"
+        }
+    ]
+}

@@ -1,0 +1,54 @@
+{
+  "name": "cider-themekit",
+  "version": "0.1.6",
+  "author": "ciderapp",
+  "bin": {
+    "c2sdk-theme": "bin/c2themekit"
+  },
+  "sdk-versions": {
+    "themes": "1"
+  },
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "themekit": "tsx src/theme/newTheme.ts",
+    "serve": "tsx src/theme/newTheme.ts serve",
+    "build": "tsx src/theme/newTheme.ts compile"
+  },
+  "keywords": [
+    "cider",
+    "ciderapp",
+    "ciderapp-theme",
+    "ciderapp-sdk",
+    "cider-sdk"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ciderapp/cider-themekit.git"
+  },
+  "dependencies": {
+    "@types/uuid": "^9.0.2",
+    "chokidar": "^3.5.3",
+    "dotenv": "^16.0.3",
+    "koa": "^2.14.2",
+    "toml": "^3.0.0",
+    "uuid": "^9.0.0",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@types/chokidar": "^2.1.3",
+    "@types/koa": "^2.13.6",
+    "@types/mute-stream": "^0.0.1",
+    "@types/node": "^20.1.1",
+    "@types/yargs": "^17.0.24",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.26",
+    "postcss-import": "^15.1.0",
+    "postcss-nested": "^6.0.1",
+    "postcss-scss": "^4.0.6",
+    "postcss-url": "^10.1.3",
+    "ts-node": "^10.9.1",
+    "tsx": "^4.7.0",
+    "typescript": "^5.0.4"
+  }
+}

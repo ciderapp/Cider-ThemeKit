@@ -1,0 +1,15 @@
+@import './second.scss';
+
+.chrome-button {
+    height: 40px;
+    width: 64px;
+}
+
+.mediaitem-card {
+  border-radius:0px;
+  --radius:0px;
+}
+:root {
+  --mediaItemRadiusSmall: 0px;
+  --mediaItemRadiusMedium: 0px;
+}

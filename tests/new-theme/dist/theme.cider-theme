@@ -1,0 +1,1 @@
+{"identifier":"com.example.theme","author":"Unknown","bundle":{"name":"New Theme"},"styles":[{"name":"New Style","css":"button {\r\n    color: red !important;\r\n}"}]}

@@ -1,0 +1,7 @@
+{
+    "$schema": "../../scheme.json",
+    "cfg": {
+        "visual.thing": "default",
+        "visual.thing2": true
+    }
+}

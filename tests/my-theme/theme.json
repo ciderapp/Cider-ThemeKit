@@ -1,0 +1,15 @@
+{
+    "name": "My Theme",
+    "identifier": "my-theme2",
+    "author": "ciderapp",
+    "styles": [
+        {
+            "name": "My Style",
+            "entry": "main.scss"
+        },
+        {
+            "name": "My Style 2",
+            "entry": "other-style.scss"
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "type": {
+        "type": "string",
+        "enum": ["theme", "style"]
+      },
+      "cfg": {
+        "type": "object",
+        "properties": {
+          "visual.thing": {
+            "type": "string",
+            "enum": ["default", "dark", "light"]
+          },
+          "visual.thing2": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "required": ["name", "type"],
+    "additionalProperties": true
+  }
