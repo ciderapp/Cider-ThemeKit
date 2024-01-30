@@ -154,6 +154,8 @@ function createServer(opts: Partial<CreateServerOptions>) {
                 const theme = getTheme(opts?.workingDir ?? workingDir);
                 const sft = await generateSFTJson(theme, 'dev', opts?.workingDir ?? workingDir);
 
+                sft.identifier = `${sft.identifier}-${sessionUUID}`;
+
                 const res = {
                     type: 'update',
                     time: Date.now(),
