@@ -2,7 +2,7 @@
 
 ## 🌐 Pre-requisites
 
--   [Cider 2 or higher](https://cidercollective.itch.io/cider)
+-   [Cider 2.3 or higher](https://cidercollective.itch.io/cider)
 -   [NodeJS 18 or higher](https://nodejs.org)
 
 ## ⚡ Quick Start
@@ -12,7 +12,6 @@
 -   Create a project with `npm run create-new ./projects/my-theme`
 -   Run `npm run serve ./projects/my-theme`
 -   Open Cider 2 and go to `Settings > Experimental > Theme Manager`
-    -   `Settings > Advanced > Theme Manager` -- Pre 2.3.0
 -   In the Main Menu, click `Theme Manager` and then click the `SDK` tab
 -   The SDK tab should say **"SDK is connected!"**
 -   Under the `Themes` tab you should see your theme listed, from here it can temporarily be enabled or disabled as well as installed permanently.
