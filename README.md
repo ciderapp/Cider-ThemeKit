@@ -7,11 +7,11 @@
 
 ## Available Commands
 
-| Command                                | Description                                                            |
-| -------------------------------------- | ---------------------------------------------------------------------- |
-| `npm run create-new {path-to-project}` | Create a new theme project                                             |
-| `npm run serve {path-to-project}`      | Host an SDK instance for the Cider Theme Manager to connect to         |
-| `npm run build {path-to-project}`      | Builds a sharable `theme.cider-theme` file in `{path-to-project}/dist` |
+| Command                                | Description                                                            | Example                                  |
+| -------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------- |
+| `npm run create-new {path-to-project}` | Create a new theme project                                             | `npm run create-new ./projects/my-theme` |
+| `npm run serve {path-to-project}`      | Host an SDK instance for the Cider Theme Manager to connect to         | `npm run serve ./projects/my-theme`      |
+| `npm run build {path-to-project}`      | Builds a sharable `theme.cider-theme` file in `{path-to-project}/dist` | `npm run build ./projects/my-theme`      |
 
 ## theme.json Explained
 
