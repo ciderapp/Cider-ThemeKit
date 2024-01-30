@@ -1,5 +1,9 @@
 # Cider 2 ThemeKit
 
+## Pre-requisites
+- [Cider 2 or higher](https://cidercollective.itch.io/cider)
+- [NodeJS 18 or higher](https://nodejs.org)
+
 ## Quick Start
 
 -   Clone this repo
