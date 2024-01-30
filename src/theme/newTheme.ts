@@ -129,56 +129,69 @@ interface CreateServerOptions {
 function createServer(opts: Partial<CreateServerOptions>) {
     const staticAssets = new Koa().use(serve(opts?.workingDir ?? workingDir));
 
-    return new Koa()
-        .use(async (ctx, next) => {
-            if (ctx.path !== '/sse') {
-                return await next();
-            }
+    return (
+        new Koa()
+            .use(async (ctx, next) => {
+                if (ctx.path !== '/sse') {
+                    return await next();
+                }
 
-            ctx.request.socket.setTimeout(0);
-            ctx.req.socket.setNoDelay(true);
-            ctx.req.socket.setKeepAlive(true);
+                ctx.request.socket.setTimeout(0);
+                ctx.req.socket.setNoDelay(true);
+                ctx.req.socket.setKeepAlive(true);
 
-            ctx.set({
-                'Content-Type': 'text/event-stream',
-                'Cache-Control': 'no-cache',
-                Connection: 'keep-alive'
-            });
+                ctx.set({
+                    'Content-Type': 'text/event-stream',
+                    'Cache-Control': 'no-cache',
+                    Connection: 'keep-alive'
+                });
 
-            const stream = new PassThrough();
+                const stream = new PassThrough();
 
-            ctx.status = 200;
-            ctx.body = stream;
+                ctx.status = 200;
+                ctx.body = stream;
 
-            const theme = getTheme(opts?.workingDir ?? workingDir);
-            const sft = await generateSFTJson(theme, 'dev', opts?.workingDir ?? workingDir);
+                const theme = getTheme(opts?.workingDir ?? workingDir);
+                const sft = await generateSFTJson(theme, 'dev', opts?.workingDir ?? workingDir);
 
-            const res = {
-                type: 'update',
-                time: Date.now(),
-                data: sft
-            };
+                const res = {
+                    type: 'update',
+                    time: Date.now(),
+                    data: sft
+                };
 
-            const listener = (data: any) => {
-                // write in base64
-                stream.write(`data: ${btoa(data)}\n\n`);
-            };
+                const listener = (data: any) => {
+                    // write in base64
+                    stream.write(`data: ${btoa(data)}\n\n`);
+                };
 
-            events.on('data', listener);
+                events.on('data', listener);
 
-            stream.on('close', () => {
-                events.off('data', listener);
-            });
+                stream.on('close', () => {
+                    events.off('data', listener);
+                });
 
-            stream.write(`data: ${btoa(JSON.stringify(res))}\n\n`);
-        })
-        .use(mount('/_assets', staticAssets))
+                stream.write(`data: ${btoa(JSON.stringify(res))}\n\n`);
+            })
+            .use(mount('/_assets', staticAssets))
+            // compile
+            .use(async (ctx, next) => {
+                if (ctx.path !== '/compile') {
+                    return await next();
+                }
 
-        .use((ctx) => {
-            ctx.status = 200;
-            ctx.body = 'ok';
-        })
-        .listen(getServerPort(), () => console.log('Server started'));
+                const theme = getTheme(opts?.workingDir ?? workingDir);
+                const sft = await generateSFTJson(theme, 'inline', opts?.workingDir ?? workingDir);
+
+                ctx.status = 200;
+                ctx.body = sft;
+            })
+            .use((ctx) => {
+                ctx.status = 200;
+                ctx.body = 'ok';
+            })
+            .listen(getServerPort(), () => console.log('Server started'))
+    );
 }
 
 main();
