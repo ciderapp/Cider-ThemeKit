@@ -34,7 +34,7 @@ async function main() {
     if (looseArgs.includes('new')) {
         let path = looseArgs[looseArgs.indexOf('new') + 1] ?? cwd();
         if (!existsSync(path)) {
-            mkdirSync(path);
+            mkdirSync(path, { recursive: true });
         }
 
         const theme: ThemeDef = {
@@ -74,7 +74,7 @@ async function main() {
 
         // check if dist exists
         if (!existsSync(join(path, 'dist'))) {
-            mkdirSync(join(path, 'dist'));
+            mkdirSync(join(path, 'dist'), { recursive: true });
         }
 
         writeFileSync(join(path, 'dist/theme.cider-theme'), JSON.stringify(sft));
