@@ -24,3 +24,9 @@
 -   Styles\*
     -   An array of stylesheets to be loaded into the theme
     -   Currently they will all load at the same time, being able to toggle them individually like Cider 1.x is planned in the future
+
+## Quirks and Features
+- Every CSS declaration is rewritten to use the `!important` flag. This is to ensure that the theme overrides the default styles.
+- Assets are inlined into the theme file and use paths are relative to the project folder itself. Example `url('picture.png')`
+    - In compiled files these assets get automatically inlined
+    - In dev mode the assets are served from the project folder
