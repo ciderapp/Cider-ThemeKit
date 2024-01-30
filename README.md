@@ -65,3 +65,28 @@ Be sure to read the Quirks and Features section before getting started.
 -   Assets are inlined into the theme file and use paths are relative to the project folder itself. Example `url('picture.png')`
     -   In compiled files these assets get automatically inlined
     -   In dev mode the assets are served from the project folder
+
+### Targeting the Light or Dark color schemes example
+
+```scss
+body.body--light {
+    // This will only apply to the light color scheme
+}
+
+body.body--dark {
+    // This will only apply to the dark color scheme
+}
+```
+
+### Other attributes
+
+```scss
+#app-viewport[top-player='true | false'] // is the player on the top?
+#app-viewport[left-drawer='true | false'] // left sidebar opened
+#app-viewport[right-drawer='true | false'] // right sidebar opened
+#app-viewport[right-drawer-type='inline | overlay'] // right sidebar type
+#app-viewport[data-framework='electron | sabiiro'] // Client Type
+
+body[window-blurred='true | false'] // is the window blurred or focused?
+html[dark-acrylic] // is the acrylic effect enabled?
+```
