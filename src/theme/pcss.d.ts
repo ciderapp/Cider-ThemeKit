@@ -4,6 +4,7 @@ import { StyleDef } from './sft'
 export function buildCSS(options: buildCSSOptions): Promise<Result>
 export interface buildCSSOptions {
     inlineAssets: boolean
+    devAssets?: boolean
     workingDir: string
     writeResults?: boolean
     styleDef: StyleDef

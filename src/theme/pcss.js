@@ -19,6 +19,10 @@ async function buildCSS(options) {
         );
     }
 
+    if (options?.devAssets) {
+        plugins.unshift(require('./postcss-devassets'));
+    }
+
     const output = await postcss(plugins).process(css, {
         parser: postcssScss,
         from: path.join(options.workingDir, options.styleDef.entry),

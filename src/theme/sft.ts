@@ -31,7 +31,7 @@ export type ComputedSFT = {
     warnings?: string[]
 }
 
-export async function generateSFTJson(theme: ThemeDef, inlineAssets: boolean = true, workingDir: string) {
+export async function generateSFTJson(theme: ThemeDef, assetHandling: 'inline' | 'dev' | 'none', workingDir: string) {
     const root: ComputedSFT = {
         identifier: theme.identifier,
         author: theme.author,
@@ -56,7 +56,8 @@ export async function generateSFTJson(theme: ThemeDef, inlineAssets: boolean = t
 
         const css = await buildCSS({
             workingDir: workingDir,
-            inlineAssets,
+            inlineAssets: assetHandling === 'inline',
+            devAssets: assetHandling === 'dev',
             styleDef: style
         })
 
