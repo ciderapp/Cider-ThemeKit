@@ -17,6 +17,8 @@
 -   The SDK tab should say **"SDK is connected!"**
 -   Under the `Themes` tab you should see your theme listed, from here it can temporarily be enabled or disabled as well as installed permanently.
 
+Be sure to read the [Quirks and Features](#-quirks-and-features) section before getting started.
+
 ### 📮 Sharing your theme (temp)
 
 -   Run `npm run build ./projects/my-theme`
@@ -43,7 +45,21 @@
     -   An array of stylesheets to be loaded into the theme
     -   Currently they will all load at the same time, being able to toggle them individually like Cider 1.x is planned in the future
 
-## 🔬 Quirks and Features
+## ⚠️ Quirks and Features (Important)
+
+-   In Cider itself, you may notice some HTML elements have an attribute called `[sfc-name="NameOfSFC"]` this is added to easily target specific Vue Single File Components. When building your theme, we _highly_ recommend you use these attributes to target specific elements. This is because the HTML structure of Cider is subject to change and we want to make sure your theme doesn't break when we make changes as well as when Vite decides to generate different `data-` tags.
+    -   Targeting `[sfc-name]` also has the benefit of not accidentally targeting multiple elements with the same class name that have different purposes and appearances.
+
+### Example of targeting an SFC
+
+```scss
+[sfc-name='NavigationButton'] {
+    // Here we are modifying the .nav-icon class inside of the NavigationButton SFC, doing it this way ensures that other elements with the .nav-icon class are not affected by mistake.
+    .nav-icon {
+        color: red;
+    }
+}
+```
 
 -   Every CSS declaration is rewritten to use the `!important` flag. This is to ensure that the theme overrides the default styles.
 -   Assets are inlined into the theme file and use paths are relative to the project folder itself. Example `url('picture.png')`
