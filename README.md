@@ -17,7 +17,7 @@
 -   The SDK tab should say **"SDK is connected!"**
 -   Under the `Themes` tab you should see your theme listed, from here it can temporarily be enabled or disabled as well as installed permanently.
 
-Be sure to read the [Quirks and Features](#-quirks-and-features) section before getting started.
+Be sure to read the Quirks and Features section before getting started.
 
 ### 📮 Sharing your theme (temp)
 
