@@ -89,3 +89,9 @@ body.body--dark {
 body[window-blurred='true | false'] // is the window blurred or focused?
 html[dark-acrylic] // is the acrylic effect enabled?
 ```
+
+## 📚 Resources
+
+[ThemeKit Wiki](https://github.com/ciderapp/cider-themekit/wiki) ⚠️ Work in progress
+
+If there are any other CSS selectors, variables, or attributes to expose you would like to suggest for ThemeKit, please let us know by creating an issue on this repository.
