@@ -1,0 +1,9 @@
+name: Theme Name
+author: author_name
+stylesheets:
+  - file: main.css
+    name: Default Style
+    description: A style
+  - file: second.css
+    name: Secondary Style
+    description: Another style

@@ -1,6 +1,6 @@
 {
   "name": "cider-themekit",
-  "version": "0.0.1",
+  "version": "2.5.0",
   "author": "ciderapp",
   "bin": {
     "c2sdk-theme": "bin/c2themekit"
